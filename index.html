@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>邀请列表</title>
+    <script src="../../libs/jquery.js"></script>
+    <script src="../../libs/angular.js"></script>
+    <script src="../../libs/angular-ui-router.js"></script>
+    <script src="data_service.js"></script>
+    <script src="list/list.js"></script>
+    <script src="detail/detail.js"></script>
+    <script src="../../libs/bootstrap/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="../../libs/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="basic.css">
+</head>
+<body ng-app="s1.namelist">
+<div class="header">
+    <h1>聚餐邀请</h1>
+</div>
+<div class="my-nav">
+    <div class="content">
+        <ul class="nav nav-pills" role="tablist">
+            <li role="presentation" ng-class="{active:getCurrentStateName() == 'list'}">
+                <a ui-sref="list">邀请名单</a>
+            </li>
+            <li role="presentation" ng-class="{active:getCurrentStateName() == 'detail'}">
+                <a ui-sref="detail({tel:getCurrentGuestTel()})">嘉宾信息</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div ui-view class="content"></div>
+<script>
+    void  function () {
+        var app = angular.module('s1.namelist', ['ui.router', 's1.data', 's1.list', 's1.detail']);
+        app.config(function ($stateProvider, $urlRouterProvider) {
+            $urlRouterProvider.otherwise('/index');
+            $stateProvider
+                    .state('list', {
+                        url: '/index', // 状态名不一定和地址一样
+                        templateUrl: 'list/list.partial.html',
+                        controller: 'listController'
+                    })
+                    .state('detail', {
+                        url: '/guest/:tel', // 状态名不一定和地址一样
+                        templateUrl: 'detail/detail.partial.html',
+                        controller: 'detailController'
+                    })
+        });
+        app.run(function ($rootScope, $state, DataService) {
+            $rootScope.getCurrentStateName = function () {
+                return $state.$current.name;
+            }
+            $rootScope.getCurrentGuestTel = function () {
+                return DataService.getCurrentGuest() ? DataService.getCurrentGuest().tel : null;
+            }
+        })
+    }()
+</script>
+</body>
+</html>

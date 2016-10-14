@@ -1,0 +1,36 @@
+<div class="invite-bar">
+    邀请新嘉宾：
+    <input type="text" ng-model="data.newGuest.name">
+    <span>，手机号：</span>
+    <input type="text" ng-model="data.newGuest.tel">
+    <button class="btn btn-sm btn-default" ng-click="actions.invite()">邀请 <i class="glyphicon glyphicon-ok"></i>
+    </button>
+</div>
+<div>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>受邀请人</th>
+            <th>联系方式</th>
+            <th>邀请状态</th>
+            <th>可用操作</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr ng-repeat="guest in data.list">
+            <td><a ui-sref='detail({tel:guest.tel})'>{{guest.name}}</a></td>
+            <td>{{guest.tel}}</td>
+            <td>{{guest.state}}</td>
+            <td class="my-actions">
+                <a ng-if="guest.state=='未确认'" ng-click="actions.setGuestState(guest,'已接受')" class="btn-default btn-sm">接受<i
+                        class="glyphicon glyphicon-check"></i></a>
+                <a ng-if="guest.state=='未确认'" ng-click="actions.setGuestState(guest,'已拒绝')" class="btn-default btn-sm">拒绝<i
+                        class="glyphicon glyphicon-log-out"></i></a>
+                <a ng-click="actions.removeGuest(guest)" class="btn-default btn-sm">清除记录 <i
+                        class="glyphicon glyphicon-remove"></i></a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

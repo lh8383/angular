@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../libs/jquery.js"></script>
+    <script src="../libs/angular.js"></script>
+    <script src="../libs/angular-ui-router.js"></script>
+    <script src="../libs/bootstrap/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="../libs/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="basic.css">
+    <style>
+
+    </style>
+</head>
+<body>
+<div class="header">
+    <h1>聚餐邀请</h1>
+</div>
+<div class="my-nav">
+    <div class="content">
+        <ul class="nav nav-pills" role="tablist">
+            <li role="presentation" class="active"><a href="#">邀请名单</a></li>
+            <li role="presentation"><a href="#">嘉宾信息</a></li>
+        </ul>
+    </div>
+</div>
+<div class="content">
+    <div class="invite-bar">
+        邀请新嘉宾：
+        <input type="text">
+        <span>，手机号：</span>
+        <input type="text">
+        <button class="btn btn-sm btn-default">邀请 <i class="glyphicon glyphicon-ok"></i></button>
+    </div>
+    <div>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>受邀请人</th>
+                <th>联系方式</th>
+                <th>邀请状态</th>
+                <th>可用操作</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="my-actions">
+                    <a class="btn-default btn-sm">接受<i class="glyphicon glyphicon-check"></i></a>
+                    <a class="btn-default btn-sm">拒绝<i class="glyphicon glyphicon-log-out"></i></a>
+                    <a class="btn-default btn-sm">清除记录 <i class="glyphicon glyphicon-remove"></i></a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script>
+    var app = angular.module('nl.list', []);
+    app.run(function ($rootScope) {
+
+    })
+</script>
+</body>
+</html>

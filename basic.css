@@ -1,0 +1,92 @@
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    background-color: darkred;
+    padding: 35px 80px;
+}
+.header > h1 {
+    width: 864px;
+    margin: 0 auto;
+    padding: 0;
+    color: lightyellow;
+    font-family: 微软雅黑;
+}
+.my-nav {
+    background-color: darksalmon;
+}
+
+.my-nav > .content {
+    background-color: darksalmon;
+    width: 1024px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.content {
+    width: 1024px;
+    margin: 0 auto;
+    padding:10px 0px;
+}
+
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus{
+    background-color: darkred;
+}
+.nav-pills > li > a{
+    border-radius: 0;
+    color: #222;
+    font-weight: 600;
+}
+
+.nav-pills > li > a:focus{
+    border-radius: 0;
+    color: lightgoldenrodyellow;
+    font-weight: 600;
+}
+
+.nav > li > a:hover, .nav > li > a:focus{
+    background-color: transparent;
+
+}
+.content > .invite-bar{
+    padding: 15px;
+}
+.content > .invite-bar{
+    color: brown;
+    font-size:16px;
+}
+.content > .invite-bar >input{
+    font-size: 12px;
+    line-height: 1.5;
+    padding:5px 10px;
+    padding-bottom:3px;
+    padding-left: 3px;
+    border: 0;
+    border-bottom: 1px solid pink;
+}
+
+thead > tr :nth-child(1){
+    width: 200px;
+}
+thead > tr :nth-child(2){
+    width: 300px;
+}
+thead > tr :nth-child(3){
+    width: 100px;
+}
+thead > tr :nth-child(4){
+    /*width: 350px;*/
+}
+
+.my-actions > a{
+    background-color: #ddd;
+    text-decoration:none;
+    cursor: default;
+}
+.my-actions > a:hover{
+    background-color: darksalmon;
+}
